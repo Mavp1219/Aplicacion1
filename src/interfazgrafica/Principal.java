@@ -44,14 +44,14 @@ public class Principal extends javax.swing.JFrame {
         jTextArea1 = new javax.swing.JTextArea();
         jPanel3 = new javax.swing.JPanel();
         jLabel6 = new javax.swing.JLabel();
-        txtNumeroUno = new javax.swing.JLabel();
-        txtNumeroDos = new javax.swing.JLabel();
-        jTextField4 = new javax.swing.JTextField();
-        jTextField5 = new javax.swing.JTextField();
+        txtNum = new javax.swing.JLabel();
+        txtNume = new javax.swing.JLabel();
+        txtnumero1 = new javax.swing.JTextField();
+        txtnumero2 = new javax.swing.JTextField();
         cmdCalcular = new javax.swing.JButton();
         cmdBorrar = new javax.swing.JButton();
         txtResultado = new javax.swing.JLabel();
-        jTextField6 = new javax.swing.JTextField();
+        txtresultado = new javax.swing.JTextField();
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -154,25 +154,25 @@ public class Principal extends javax.swing.JFrame {
         jLabel6.setText("SUMA DE DOS NUMEROS");
         jPanel3.add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(163, 0, 167, 36));
 
-        txtNumeroUno.setText("PRIMER NUMERO");
-        jPanel3.add(txtNumeroUno, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 50, 90, 30));
+        txtNum.setText("PRIMER NUMERO");
+        jPanel3.add(txtNum, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 50, 90, 30));
 
-        txtNumeroDos.setText("SEGUNDO NUMERO");
-        jPanel3.add(txtNumeroDos, new org.netbeans.lib.awtextra.AbsoluteConstraints(273, 57, 100, 30));
+        txtNume.setText("SEGUNDO NUMERO");
+        jPanel3.add(txtNume, new org.netbeans.lib.awtextra.AbsoluteConstraints(273, 57, 100, 30));
 
-        jTextField4.addActionListener(new java.awt.event.ActionListener() {
+        txtnumero1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jTextField4ActionPerformed(evt);
+                txtnumero1ActionPerformed(evt);
             }
         });
-        jPanel3.add(jTextField4, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 60, 97, -1));
+        jPanel3.add(txtnumero1, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 60, 97, -1));
 
-        jTextField5.addActionListener(new java.awt.event.ActionListener() {
+        txtnumero2.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jTextField5ActionPerformed(evt);
+                txtnumero2ActionPerformed(evt);
             }
         });
-        jPanel3.add(jTextField5, new org.netbeans.lib.awtextra.AbsoluteConstraints(380, 60, 77, -1));
+        jPanel3.add(txtnumero2, new org.netbeans.lib.awtextra.AbsoluteConstraints(380, 60, 77, -1));
 
         cmdCalcular.setText("CALCULAR");
         cmdCalcular.addActionListener(new java.awt.event.ActionListener() {
@@ -183,11 +183,16 @@ public class Principal extends javax.swing.JFrame {
         jPanel3.add(cmdCalcular, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 240, -1, -1));
 
         cmdBorrar.setText("BORRAR");
+        cmdBorrar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                cmdBorrarActionPerformed(evt);
+            }
+        });
         jPanel3.add(cmdBorrar, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 240, -1, -1));
 
         txtResultado.setText("RESULTADO");
         jPanel3.add(txtResultado, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 140, 70, 20));
-        jPanel3.add(jTextField6, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 140, 91, -1));
+        jPanel3.add(txtresultado, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 140, 91, -1));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -204,16 +209,39 @@ public class Principal extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void cmdCalcularActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cmdCalcularActionPerformed
+        String n1, n2, res;
+        int num1, num2, suma;
+        
+        n1 = txtnumero1.getText();
+        n2= txtnumero2.getText();
+        
+        num1 = Integer.parseInt(n1);
+        num2 = Integer.parseInt(n2);
+        
+        suma = num1+num2;
+        
+        res= String.valueOf(suma);
+        
+        txtresultado.setText(res);
         
     }//GEN-LAST:event_cmdCalcularActionPerformed
 
-    private void jTextField4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField4ActionPerformed
+    private void txtnumero1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtnumero1ActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jTextField4ActionPerformed
+    }//GEN-LAST:event_txtnumero1ActionPerformed
 
-    private void jTextField5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField5ActionPerformed
+    private void txtnumero2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtnumero2ActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jTextField5ActionPerformed
+    }//GEN-LAST:event_txtnumero2ActionPerformed
+
+    private void cmdBorrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cmdBorrarActionPerformed
+      txtnumero1.setText("");
+      txtnumero2.setText("");
+      txtresultado.setText("");
+      
+      txtnumero1.requestFocusInWindow();
+        
+    }//GEN-LAST:event_cmdBorrarActionPerformed
 
     /**
      * @param args the command line arguments
@@ -269,11 +297,11 @@ public class Principal extends javax.swing.JFrame {
     private javax.swing.JTextField jTextField1;
     private javax.swing.JTextField jTextField2;
     private javax.swing.JTextField jTextField3;
-    private javax.swing.JTextField jTextField4;
-    private javax.swing.JTextField jTextField5;
-    private javax.swing.JTextField jTextField6;
-    private javax.swing.JLabel txtNumeroDos;
-    private javax.swing.JLabel txtNumeroUno;
+    private javax.swing.JLabel txtNum;
+    private javax.swing.JLabel txtNume;
     private javax.swing.JLabel txtResultado;
+    private javax.swing.JTextField txtnumero1;
+    private javax.swing.JTextField txtnumero2;
+    private javax.swing.JTextField txtresultado;
     // End of variables declaration//GEN-END:variables
 }
