@@ -6,6 +6,8 @@
 
 package interfazgrafica;
 
+import javax.swing.JOptionPane;
+
 /**
  *
  * @author mvarela6
@@ -194,6 +196,8 @@ public class Principal extends javax.swing.JFrame {
 
         txtResultado.setText("RESULTADO");
         jPanel3.add(txtResultado, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 150, 70, 20));
+
+        txtresultado.setEditable(false);
         jPanel3.add(txtresultado, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 150, 91, -1));
 
         cmboperaciones.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Suma", "Resta", "Multiplicacion", "Division" }));
@@ -226,10 +230,19 @@ public class Principal extends javax.swing.JFrame {
         double num1, num2, operacion = 0;
         int opc;
         
-       num1= Double.parseDouble(txtnumero1.getText());
-       num2= Double.parseDouble(txtnumero2.getText());
-       opc= cmboperaciones.getSelectedIndex();
+      
        
+       if (txtnumero1.getText().trim().isEmpty()){
+       JOptionPane.showMessageDialog(this, "Digite por favor el numero 1", "Error" ,JOptionPane.ERROR_MESSAGE);
+       txtnumero1.requestFocusInWindow();
+       } else if(txtnumero2.getText().trim().isEmpty()){
+           JOptionPane.showMessageDialog(this, "Digite por favor el numero 2", "Error" , JOptionPane.ERROR_MESSAGE);
+       txtnumero2.requestFocusInWindow();
+       } else {
+           num1= Double.parseDouble(txtnumero1.getText());
+            num2= Double.parseDouble(txtnumero2.getText());
+            opc= cmboperaciones.getSelectedIndex();
+
         switch(opc){
             case 0:
                 operacion = num1 + num2;
@@ -246,7 +259,7 @@ public class Principal extends javax.swing.JFrame {
             case 3:  
             operacion = num1 / num2;
             break;
-        }
+        }}
         
         res= String.valueOf(operacion);
         
