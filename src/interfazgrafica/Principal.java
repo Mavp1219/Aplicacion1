@@ -3,7 +3,6 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-
 package interfazgrafica;
 
 import javax.swing.JOptionPane;
@@ -169,11 +168,21 @@ public class Principal extends javax.swing.JFrame {
                 txtnumero1ActionPerformed(evt);
             }
         });
+        txtnumero1.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                txtnumero1KeyTyped(evt);
+            }
+        });
         jPanel3.add(txtnumero1, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 60, 97, -1));
 
         txtnumero2.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 txtnumero2ActionPerformed(evt);
+            }
+        });
+        txtnumero2.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                txtnumero2KeyTyped(evt);
             }
         });
         jPanel3.add(txtnumero2, new org.netbeans.lib.awtextra.AbsoluteConstraints(400, 60, 77, -1));
@@ -229,42 +238,48 @@ public class Principal extends javax.swing.JFrame {
         String n1, n2, res;
         double num1, num2, operacion = 0;
         int opc;
-        
-      
-       
-       if (txtnumero1.getText().trim().isEmpty()){
-       JOptionPane.showMessageDialog(this, "Digite por favor el numero 1", "Error" ,JOptionPane.ERROR_MESSAGE);
-       txtnumero1.requestFocusInWindow();
-       } else if(txtnumero2.getText().trim().isEmpty()){
-           JOptionPane.showMessageDialog(this, "Digite por favor el numero 2", "Error" , JOptionPane.ERROR_MESSAGE);
-       txtnumero2.requestFocusInWindow();
-       } else {
-           num1= Double.parseDouble(txtnumero1.getText());
-            num2= Double.parseDouble(txtnumero2.getText());
-            opc= cmboperaciones.getSelectedIndex();
+        txtresultado.setText("");
+        if (txtnumero1.getText().trim().isEmpty()) {
+            JOptionPane.showMessageDialog(this, "Digite por favor el numero 1", "Error", JOptionPane.ERROR_MESSAGE);
+            txtnumero1.requestFocusInWindow();
+        } else if (txtnumero2.getText().trim().isEmpty()) {
+            JOptionPane.showMessageDialog(this, "Digite por favor el numero 2", "Error", JOptionPane.ERROR_MESSAGE);
+            txtnumero2.requestFocusInWindow();
+        } else {
+            num1 = Double.parseDouble(txtnumero1.getText());
+            num2 = Double.parseDouble(txtnumero2.getText());
+            opc = cmboperaciones.getSelectedIndex();
 
-        switch(opc){
-            case 0:
-                operacion = num1 + num2;
-                break;
-            
-            case 1: 
-                operacion = num1 - num2;
-                break;
-                
-            case 2:   
-                operacion = num1 * num2;
-                break;     
-                
-            case 3:  
-            operacion = num1 / num2;
-            break;
-        }}
-        
-        res= String.valueOf(operacion);
-        
+            if (opc == 3 && num2 == 0) {
+                JOptionPane.showMessageDialog(this, "No se permiten divison por 0", "Error", JOptionPane.ERROR_MESSAGE);
+                txtnumero2.requestFocusInWindow();
+                txtnumero2.selectAll();
+            } else {
+
+                switch (opc) {
+                    case 0:
+                        operacion = num1 + num2;
+                        break;
+
+                    case 1:
+                        operacion = num1 - num2;
+                        break;
+
+                    case 2:
+                        operacion = num1 * num2;
+                        break;
+
+                    case 3:
+                        operacion = num1 / num2;
+                        break;
+                }
+            }
+        }
+
+        res = String.valueOf(operacion);
+
         txtresultado.setText(res);
-        
+
     }//GEN-LAST:event_cmdCalcularActionPerformed
 
     private void txtnumero1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtnumero1ActionPerformed
@@ -276,17 +291,36 @@ public class Principal extends javax.swing.JFrame {
     }//GEN-LAST:event_txtnumero2ActionPerformed
 
     private void cmdBorrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cmdBorrarActionPerformed
-      txtnumero1.setText("");
-      txtnumero2.setText("");
-      txtresultado.setText("");
-      
-      txtnumero1.requestFocusInWindow();
+        txtnumero1.setText("");
+        txtnumero2.setText("");
+        txtresultado.setText("");
+
+        txtnumero1.requestFocusInWindow();
         cmboperaciones.setSelectedIndex(0);
     }//GEN-LAST:event_cmdBorrarActionPerformed
 
     private void cmboperacionesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cmboperacionesActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_cmboperacionesActionPerformed
+
+    private void txtnumero1KeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtnumero1KeyTyped
+       
+        char c=evt.getKeyChar();
+        
+    if (Character.isAlphabetic(c) || Character.isSpaceChar(c)){
+        getToolkit().beep();
+        evt.consume();
+    }
+        
+    }//GEN-LAST:event_txtnumero1KeyTyped
+
+    private void txtnumero2KeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtnumero2KeyTyped
+        char c=evt.getKeyChar();
+        
+    if (Character.isAlphabetic(c) || Character.isSpaceChar(c)){
+        getToolkit().beep();
+        evt.consume();
+    }//GEN-LAST:event_txtnumero2KeyTyped
 
     /**
      * @param args the command line arguments
