@@ -236,7 +236,6 @@
         </Component>
         <Component class="javax.swing.JTextField" name="txtnumero1">
           <Events>
-            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="txtnumero1ActionPerformed"/>
             <EventHandler event="keyTyped" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="txtnumero1KeyTyped"/>
           </Events>
           <Constraints>
@@ -247,7 +246,6 @@
         </Component>
         <Component class="javax.swing.JTextField" name="txtnumero2">
           <Events>
-            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="txtnumero2ActionPerformed"/>
             <EventHandler event="keyTyped" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="txtnumero2KeyTyped"/>
           </Events>
           <Constraints>

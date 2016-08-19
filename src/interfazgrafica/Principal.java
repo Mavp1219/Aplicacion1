@@ -163,11 +163,6 @@ public class Principal extends javax.swing.JFrame {
         txtNume.setText("SEGUNDO NUMERO");
         jPanel3.add(txtNume, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 50, 100, 30));
 
-        txtnumero1.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                txtnumero1ActionPerformed(evt);
-            }
-        });
         txtnumero1.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyTyped(java.awt.event.KeyEvent evt) {
                 txtnumero1KeyTyped(evt);
@@ -175,11 +170,6 @@ public class Principal extends javax.swing.JFrame {
         });
         jPanel3.add(txtnumero1, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 60, 97, -1));
 
-        txtnumero2.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                txtnumero2ActionPerformed(evt);
-            }
-        });
         txtnumero2.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyTyped(java.awt.event.KeyEvent evt) {
                 txtnumero2KeyTyped(evt);
@@ -282,14 +272,6 @@ public class Principal extends javax.swing.JFrame {
 
     }//GEN-LAST:event_cmdCalcularActionPerformed
 
-    private void txtnumero1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtnumero1ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_txtnumero1ActionPerformed
-
-    private void txtnumero2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtnumero2ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_txtnumero2ActionPerformed
-
     private void cmdBorrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cmdBorrarActionPerformed
         txtnumero1.setText("");
         txtnumero2.setText("");
@@ -304,10 +286,9 @@ public class Principal extends javax.swing.JFrame {
     }//GEN-LAST:event_cmboperacionesActionPerformed
 
     private void txtnumero1KeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtnumero1KeyTyped
-       
-        char c=evt.getKeyChar();
+    char c=evt.getKeyChar();
         
-    if (Character.isAlphabetic(c) || Character.isSpaceChar(c)){
+    if (Character.isDigit(c)){
         getToolkit().beep();
         evt.consume();
     }
@@ -315,11 +296,14 @@ public class Principal extends javax.swing.JFrame {
     }//GEN-LAST:event_txtnumero1KeyTyped
 
     private void txtnumero2KeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtnumero2KeyTyped
-        char c=evt.getKeyChar();
+
+       char c=evt.getKeyChar();
         
-    if (Character.isAlphabetic(c) || Character.isSpaceChar(c)){
+    if (Character.isDigit(c)){
         getToolkit().beep();
         evt.consume();
+    }
+        
     }//GEN-LAST:event_txtnumero2KeyTyped
 
     /**
