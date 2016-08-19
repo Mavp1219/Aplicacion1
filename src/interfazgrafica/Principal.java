@@ -286,9 +286,10 @@ public class Principal extends javax.swing.JFrame {
     }//GEN-LAST:event_cmboperacionesActionPerformed
 
     private void txtnumero1KeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtnumero1KeyTyped
-    char c=evt.getKeyChar();
+   
+        char c=evt.getKeyChar();
         
-    if (Character.isDigit(c)){
+    if (!Character.isDigit(c)){
         getToolkit().beep();
         evt.consume();
     }
@@ -299,7 +300,7 @@ public class Principal extends javax.swing.JFrame {
 
        char c=evt.getKeyChar();
         
-    if (Character.isDigit(c)){
+    if (!Character.isDigit(c)){
         getToolkit().beep();
         evt.consume();
     }
